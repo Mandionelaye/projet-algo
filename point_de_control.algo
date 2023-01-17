@@ -1,0 +1,23 @@
+ALGORITHM algo_phrase
+VAR
+    ctp:INTEGER:=0;
+    n:INTEGER:=0;
+    v:INTEGER:=0;
+    Phrase:STRING;
+BEGIN
+    Write("ecrire une phrase qui se termine par un point,: ");
+    Read(Phrase);
+    WHILE (Phrase <>".") DO
+        n:= n + 1;
+
+        IF (Phrase = " ") THEN
+            ctp:=ctp + 1;
+        END_IF
+        IF (Phrase = "a" or Phrase ="e" or Phrase ="i" or Phrase ="o" or Phrase ="u" or Phrase ="y") THEN
+           v:= v + 1;
+        END_IF
+    END_WHILE
+    Write("La longueur de la phrase est : ", n)
+    Write("Le nombre de mots dans la phrase : ",ctp);
+    Write("Le nombre de voyelles dans la phrase : "+ v)
+END
