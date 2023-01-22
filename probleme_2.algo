@@ -1,0 +1,75 @@
+
+     //solution 1
+ALGORITHM Table
+VAR
+ jeu1 : ARRAY_OF INTEGER[4];
+  jeu2 : ARRAY_OF INTEGER[4];
+
+  Jeu1 := {12, 13, 6, 10};
+  Jeu2 := {13, 10, 16, 15};
+  i :INTEGER:=0;
+  j:INTEGER:=0;
+  sum :INTEGER:=0;
+  som : INTEGER:=0;
+  somme:INTEGER:=0;
+BEGIN
+
+     //premier table
+     WHILE (i < jeu1.lenght) DO
+         
+       WHILE (j < jeu2.lenght) DO
+          IF (jeu1[i]=jeu2[j]) THEN
+              sum = sum + jeu1[i];
+         END_IF
+         j:=j+1;
+       END_WHILE
+        i:= i+1;
+     END_WHILE
+ 
+    //seconde table
+      WHILE (i < jeu2.lenght) DO
+    
+       WHILE (j < jeu1.lenght) DO
+          IF (jeu2[i]=jeu1[j]) THEN
+             som := som + jeu2[i];
+         END_IF
+         j:=j+1;
+       END_WHILE
+        i:= i+1;
+     END_WHILE
+
+     somme:= sum + som;
+    Write(somme);
+END
+/*solution2*/
+
+ALGORITHM hash_table
+VAR
+   jeux1:HASH_TABLE<INTEGER,INTEGER>;
+   jeux1:HASH_TABLE<INTEGER,INTEGER>;
+   i :INTEGER:=0;
+   j:INTEGER:=0;
+   count:INTEGER:=1;
+BEGIN
+    jeux1.insert(0,12);    
+    jeux1.insert(1,13);    
+    jeux1.insert(2,6); 
+    jeux1.insert(3,10);
+ 
+    jeux2.insert(0,13);    
+    jeux2.insert(1,10);    
+    jeux2.insert(2,16); 
+    jeux2.insert(3,15);
+     
+     //premier table
+     WHILE (i<jeux1.lenght) DO
+       jeux1.get(i):= jeux1.get(i) + count;
+      i:=i+1;
+     END_WHILE
+     
+     //seconde table
+     WHILE (i<jeux2.lenght) DO
+       jeux2.get(i):= jeux2.get(i) + count;
+      i:=i+1;
+     END_WHILE
+END

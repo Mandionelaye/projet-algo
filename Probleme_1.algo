@@ -1,0 +1,86 @@
+
+     //solution 1
+ALGORITHM Table
+VAR
+ jeu1 : ARRAY_OF INTEGER[4];
+  jeu2 : ARRAY_OF INTEGER[5];
+
+  Jeu1 := {3, 1, 7, 9};
+  Jeu2 := {2, 4, 1, 9, 3};
+  i :INTEGER:=0;
+  j:INTEGER:=0;
+  sum :INTEGER:=0;
+  som : INTEGER:=0;
+  somme:INTEGER:=0;
+BEGIN
+
+     //premier table
+     WHILE (i<jeu1.lenght) DO
+         compt1:BOOLEAN:=false;
+       WHILE (j<jeu2.lenght) DO
+          IF (jeu1[i]=jeu2[j]) THEN
+             compt1 :=true;
+         END_IF
+         j:=j+1;
+       END_WHILE
+
+       IF (compt1=false) THEN
+           sum = sum + jeu1[i];
+       END_IF
+
+        i:= i+1;
+     END_WHILE
+ 
+    //seconde table
+      WHILE (i < jeu2.lenght) DO
+         compt2:BOOLEAN:=false;
+       WHILE (j < jeu1.lenght) DO
+          IF (jeu2[i]=jeu1[j]) THEN
+             compt2 :=true;
+         END_IF
+         j:=j+1;
+       END_WHILE
+
+       IF (compt2=false) THEN
+           som := som + jeu2[i];
+       END_IF
+        i:= i+1;
+     END_WHILE
+
+     somme:= sum + som;
+    Write(somme);
+END
+
+/*solution2*/
+
+ALGORITHM hash_table
+VAR
+   jeux1:HASH_TABLE<INTEGER,INTEGER>;
+   jeux1:HASH_TABLE<INTEGER,INTEGER>;
+   i :INTEGER:=0;
+   j:INTEGER:=0;
+   count:INTEGER:=1;
+BEGIN
+    jeux1.insert(0,3);    
+    jeux1.insert(1,1);    
+    jeux1.insert(2,7); 
+    jeux1.insert(3,9);
+ 
+    jeux2.insert(0,2);    
+    jeux2.insert(1,4);    
+    jeux2.insert(2,1); 
+    jeux2.insert(3,9);
+    jeux2.insert(4,3);
+     
+     //premier table
+     WHILE (i<jeux1.lenght) DO
+       jeux1.get(i):= jeux1.get(i) + count;
+      i:=i+1;
+     END_WHILE
+     
+     //seconde table
+     WHILE (i<jeux2.lenght) DO
+       jeux2.get(i):= jeux2.get(i) + count;
+      i:=i+1;
+     END_WHILE
+END
